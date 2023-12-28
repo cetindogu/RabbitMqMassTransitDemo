@@ -10,7 +10,20 @@ var bus = BusConfigurator.ConfigureBus(configuration =>
         // e.Consumer(() => new SubmitOrderCommandConsumer());
         // e.Consumer(typeof(SubmitOrderCommandConsumer), type => Activator.CreateInstance(type));
         e.Consumer<SubmitOrderCommandConsumer>();
+
         e.UseMessageRetry(r => r.Immediate(5));
+
+        e.UseMessageRetry(r => r.Ignore(typeof(ArgumentNullException), typeof(DivideByZeroException)));
+
+        e.UseRateLimit(1000, TimeSpan.FromSeconds(5));
+
+        e.UseCircuitBreaker(cbConfiguration =>
+        {
+            cbConfiguration.TripThreshold = 10;
+            cbConfiguration.ActiveThreshold = 5;
+            cbConfiguration.TrackingPeriod = TimeSpan.FromMinutes(1);
+            cbConfiguration.ResetInterval = TimeSpan.FromMinutes(5);
+        });
     });
 });
 
