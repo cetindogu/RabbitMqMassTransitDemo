@@ -10,6 +10,7 @@ var bus = BusConfigurator.ConfigureBus(configuration =>
         // e.Consumer(() => new SubmitOrderCommandConsumer());
         // e.Consumer(typeof(SubmitOrderCommandConsumer), type => Activator.CreateInstance(type));
         e.Consumer<SubmitOrderCommandConsumer>();
+        e.UseMessageRetry(r => r.Immediate(5));
     });
 });
 
