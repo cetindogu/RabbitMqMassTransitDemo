@@ -9,3 +9,10 @@ var bus = BusConfigurator.ConfigureBus(configuration =>
             e.Consumer<SubmittedOrderNotificationEventConsumer>();
         });
     });
+
+await bus.StartAsync();
+
+Console.WriteLine("Listening order commands... Press any key to exit.");
+Console.ReadKey();
+
+await bus.StopAsync();
