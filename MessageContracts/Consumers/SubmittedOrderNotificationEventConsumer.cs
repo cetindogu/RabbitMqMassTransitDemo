@@ -1,7 +1,7 @@
 ﻿using MassTransit;
 using MessageContracts.Events;
 
-namespace NotificationService;
+namespace MessageContracts.Consumers;
 
 public class SubmittedOrderNotificationEventConsumer : IConsumer<IOrderSubmittedEvent>
 {

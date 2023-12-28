@@ -1,7 +1,7 @@
 ﻿using MassTransit;
 using MessageContracts.Events;
 
-namespace BillingService;
+namespace MessageContracts.Consumers;
 
 public class SubmittedOrderBillEventConsumer : IConsumer<IOrderSubmittedEvent>
 {

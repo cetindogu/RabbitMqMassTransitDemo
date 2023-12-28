@@ -1,6 +1,6 @@
-﻿using BillingService;
-using MassTransit;
+﻿using MassTransit;
 using MessageContracts;
+using MessageContracts.Consumers;
 
 var bus = BusConfigurator.ConfigureBus(configuration =>
 {

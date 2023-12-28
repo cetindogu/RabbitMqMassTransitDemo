@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 using MessageContracts;
-using OrderService;
+using MessageContracts.Consumers;
 
 var bus = BusConfigurator.ConfigureBus(configuration =>
 {

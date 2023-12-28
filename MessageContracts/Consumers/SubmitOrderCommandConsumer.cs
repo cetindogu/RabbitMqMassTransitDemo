@@ -2,7 +2,7 @@
 using MessageContracts.Commands;
 using MessageContracts.Events;
 
-namespace OrderService;
+namespace MessageContracts.Consumers;
 
 public class SubmitOrderCommandConsumer : IConsumer<ISubmitOrderCommand>
 {
