@@ -6,6 +6,6 @@ namespace Api.Models
     {
         public int OrderId { get; set; }
 
-        public string OrderCode { get; set; }
+        public required string OrderCode { get; init; }
     }
 }
