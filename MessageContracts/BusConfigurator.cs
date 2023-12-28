@@ -4,7 +4,7 @@ namespace MessageContracts
 {
     public class BusConfigurator
     {
-        public static IBusControl ConfigureBus(Action<IRabbitMqBusFactoryConfigurator> registrationAction = null)
+        public static IBusControl ConfigureBus(Action<IRabbitMqBusFactoryConfigurator>? registrationAction = null)
         {
             return Bus.Factory.CreateUsingRabbitMq(configuration =>
             {
